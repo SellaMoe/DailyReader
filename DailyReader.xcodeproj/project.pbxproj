@@ -394,6 +394,7 @@
 				6C6F4CAD19FD0072005E52FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6C6F4CAE19FD0072005E52FE /* Build configuration list for PBXNativeTarget "DailyReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -402,6 +403,7 @@
 				6C6F4CB019FD0072005E52FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
