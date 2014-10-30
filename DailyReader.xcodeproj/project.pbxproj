@@ -147,11 +147,8 @@
 		6C6F4C9019FD0072005E52FE /* DailyReader */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				6C6A0A881A0295BD007BA57E /* Manager */,
-=======
 				CF55B6E31A028E3F00944E80 /* Calendar */,
->>>>>>> FETCH_HEAD
 				CF55B6C91A02787B00944E80 /* DailyReaderViewController.h */,
 				CF55B6CA1A02787B00944E80 /* DailyReaderViewController.m */,
 				6C6F4C9519FD0072005E52FE /* AppDelegate.h */,
@@ -342,15 +339,12 @@
 				CF55B6CB1A02787B00944E80 /* DailyReaderViewController.m in Sources */,
 				6C6F4C9719FD0072005E52FE /* AppDelegate.m in Sources */,
 				6C6F4C9419FD0072005E52FE /* main.m in Sources */,
-<<<<<<< HEAD
 				6C6A0A8B1A029626007BA57E /* HttpClientManager.m in Sources */,
 				6C6A0A851A029114007BA57E /* Singleton.m in Sources */,
-=======
 				CF55B6FA1A028EA700944E80 /* PMSelectionView.m in Sources */,
 				CF55B6F91A028EA700944E80 /* PMPeriod.m in Sources */,
 				CF55B6F51A028EA700944E80 /* PMCalendarBackgroundView.m in Sources */,
 				CF55B6F81A028EA700944E80 /* PMDimmingView.m in Sources */,
->>>>>>> FETCH_HEAD
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
