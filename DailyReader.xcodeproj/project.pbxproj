@@ -24,6 +24,13 @@
 		CF55B6E01A027A8800944E80 /* tabbar_more.png in Resources */ = {isa = PBXBuildFile; fileRef = CF55B6D81A027A8800944E80 /* tabbar_more.png */; };
 		CF55B6E11A027A8800944E80 /* tabbar_product_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = CF55B6D91A027A8800944E80 /* tabbar_product_selected.png */; };
 		CF55B6E21A027A8800944E80 /* tabbar_product.png in Resources */ = {isa = PBXBuildFile; fileRef = CF55B6DA1A027A8800944E80 /* tabbar_product.png */; };
+		CF55B6F41A028EA700944E80 /* NSDate+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = CF55B6E51A028EA700944E80 /* NSDate+Helpers.m */; };
+		CF55B6F51A028EA700944E80 /* PMCalendarBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF55B6E71A028EA700944E80 /* PMCalendarBackgroundView.m */; };
+		CF55B6F61A028EA700944E80 /* PMCalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF55B6EA1A028EA700944E80 /* PMCalendarController.m */; };
+		CF55B6F71A028EA700944E80 /* PMCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF55B6ED1A028EA700944E80 /* PMCalendarView.m */; };
+		CF55B6F81A028EA700944E80 /* PMDimmingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF55B6EF1A028EA700944E80 /* PMDimmingView.m */; };
+		CF55B6F91A028EA700944E80 /* PMPeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = CF55B6F11A028EA700944E80 /* PMPeriod.m */; };
+		CF55B6FA1A028EA700944E80 /* PMSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF55B6F31A028EA700944E80 /* PMSelectionView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +69,22 @@
 		CF55B6D81A027A8800944E80 /* tabbar_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_more.png; path = DailyReader/Resources/tabbar_more.png; sourceTree = "<group>"; };
 		CF55B6D91A027A8800944E80 /* tabbar_product_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_product_selected.png; path = DailyReader/Resources/tabbar_product_selected.png; sourceTree = "<group>"; };
 		CF55B6DA1A027A8800944E80 /* tabbar_product.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_product.png; path = DailyReader/Resources/tabbar_product.png; sourceTree = "<group>"; };
+		CF55B6E41A028EA700944E80 /* NSDate+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Helpers.h"; path = "Calendar/NSDate+Helpers.h"; sourceTree = "<group>"; };
+		CF55B6E51A028EA700944E80 /* NSDate+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Helpers.m"; path = "Calendar/NSDate+Helpers.m"; sourceTree = "<group>"; };
+		CF55B6E61A028EA700944E80 /* PMCalendarBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMCalendarBackgroundView.h; path = Calendar/PMCalendarBackgroundView.h; sourceTree = "<group>"; };
+		CF55B6E71A028EA700944E80 /* PMCalendarBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMCalendarBackgroundView.m; path = Calendar/PMCalendarBackgroundView.m; sourceTree = "<group>"; };
+		CF55B6E81A028EA700944E80 /* PMCalendarConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMCalendarConstants.h; path = Calendar/PMCalendarConstants.h; sourceTree = "<group>"; };
+		CF55B6E91A028EA700944E80 /* PMCalendarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMCalendarController.h; path = Calendar/PMCalendarController.h; sourceTree = "<group>"; };
+		CF55B6EA1A028EA700944E80 /* PMCalendarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMCalendarController.m; path = Calendar/PMCalendarController.m; sourceTree = "<group>"; };
+		CF55B6EB1A028EA700944E80 /* PMCalendarHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMCalendarHelpers.h; path = Calendar/PMCalendarHelpers.h; sourceTree = "<group>"; };
+		CF55B6EC1A028EA700944E80 /* PMCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMCalendarView.h; path = Calendar/PMCalendarView.h; sourceTree = "<group>"; };
+		CF55B6ED1A028EA700944E80 /* PMCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMCalendarView.m; path = Calendar/PMCalendarView.m; sourceTree = "<group>"; };
+		CF55B6EE1A028EA700944E80 /* PMDimmingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMDimmingView.h; path = Calendar/PMDimmingView.h; sourceTree = "<group>"; };
+		CF55B6EF1A028EA700944E80 /* PMDimmingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMDimmingView.m; path = Calendar/PMDimmingView.m; sourceTree = "<group>"; };
+		CF55B6F01A028EA700944E80 /* PMPeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMPeriod.h; path = Calendar/PMPeriod.h; sourceTree = "<group>"; };
+		CF55B6F11A028EA700944E80 /* PMPeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMPeriod.m; path = Calendar/PMPeriod.m; sourceTree = "<group>"; };
+		CF55B6F21A028EA700944E80 /* PMSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMSelectionView.h; path = Calendar/PMSelectionView.h; sourceTree = "<group>"; };
+		CF55B6F31A028EA700944E80 /* PMSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMSelectionView.m; path = Calendar/PMSelectionView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +147,11 @@
 		6C6F4C9019FD0072005E52FE /* DailyReader */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				6C6A0A881A0295BD007BA57E /* Manager */,
+=======
+				CF55B6E31A028E3F00944E80 /* Calendar */,
+>>>>>>> FETCH_HEAD
 				CF55B6C91A02787B00944E80 /* DailyReaderViewController.h */,
 				CF55B6CA1A02787B00944E80 /* DailyReaderViewController.m */,
 				6C6F4C9519FD0072005E52FE /* AppDelegate.h */,
@@ -176,6 +203,29 @@
 				CF55B6DA1A027A8800944E80 /* tabbar_product.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		CF55B6E31A028E3F00944E80 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				CF55B6E41A028EA700944E80 /* NSDate+Helpers.h */,
+				CF55B6E51A028EA700944E80 /* NSDate+Helpers.m */,
+				CF55B6E61A028EA700944E80 /* PMCalendarBackgroundView.h */,
+				CF55B6E71A028EA700944E80 /* PMCalendarBackgroundView.m */,
+				CF55B6E81A028EA700944E80 /* PMCalendarConstants.h */,
+				CF55B6E91A028EA700944E80 /* PMCalendarController.h */,
+				CF55B6EA1A028EA700944E80 /* PMCalendarController.m */,
+				CF55B6EB1A028EA700944E80 /* PMCalendarHelpers.h */,
+				CF55B6EC1A028EA700944E80 /* PMCalendarView.h */,
+				CF55B6ED1A028EA700944E80 /* PMCalendarView.m */,
+				CF55B6EE1A028EA700944E80 /* PMDimmingView.h */,
+				CF55B6EF1A028EA700944E80 /* PMDimmingView.m */,
+				CF55B6F01A028EA700944E80 /* PMPeriod.h */,
+				CF55B6F11A028EA700944E80 /* PMPeriod.m */,
+				CF55B6F21A028EA700944E80 /* PMSelectionView.h */,
+				CF55B6F31A028EA700944E80 /* PMSelectionView.m */,
+			);
+			name = Calendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,11 +336,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF55B6F61A028EA700944E80 /* PMCalendarController.m in Sources */,
+				CF55B6F71A028EA700944E80 /* PMCalendarView.m in Sources */,
+				CF55B6F41A028EA700944E80 /* NSDate+Helpers.m in Sources */,
 				CF55B6CB1A02787B00944E80 /* DailyReaderViewController.m in Sources */,
 				6C6F4C9719FD0072005E52FE /* AppDelegate.m in Sources */,
 				6C6F4C9419FD0072005E52FE /* main.m in Sources */,
+<<<<<<< HEAD
 				6C6A0A8B1A029626007BA57E /* HttpClientManager.m in Sources */,
 				6C6A0A851A029114007BA57E /* Singleton.m in Sources */,
+=======
+				CF55B6FA1A028EA700944E80 /* PMSelectionView.m in Sources */,
+				CF55B6F91A028EA700944E80 /* PMPeriod.m in Sources */,
+				CF55B6F51A028EA700944E80 /* PMCalendarBackgroundView.m in Sources */,
+				CF55B6F81A028EA700944E80 /* PMDimmingView.m in Sources */,
+>>>>>>> FETCH_HEAD
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

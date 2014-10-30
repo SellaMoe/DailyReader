@@ -46,16 +46,16 @@
     buttonRect.origin.y = buttonRect.size.height - 40;
     buttonRect.size.height = 40;
     buttonRect.size.width = screenSize.size.width / 4;
-    UIButton* button1 = [[UIButton alloc]initWithFrame:buttonRect];
-    [button1 setImage:[UIImage imageNamed:@"tabbar_client.png"] forState:UIControlStateNormal];
-    [button1 setImage:[UIImage imageNamed:@"tabbar_client_selected.png"] forState:UIControlStateSelected];
-    [button1 addTarget:self action:@selector(hideTextView:) forControlEvents:UIControlEventTouchDown];
-    button1.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:button1];
+    UIButton *nightModeButton = [[UIButton alloc]initWithFrame:buttonRect];
+    [nightModeButton setImage:[UIImage imageNamed:@"tabbar_client.png"] forState:UIControlStateNormal];
+    [nightModeButton addTarget:self action:@selector(hideTextView:) forControlEvents:UIControlEventTouchDown];
+    nightModeButton.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:nightModeButton];
     
     buttonRect.origin.x += screenSize.size.width / 4;
     UIButton* button2 = [[UIButton alloc]initWithFrame:buttonRect];
     [button2 setImage:[UIImage imageNamed:@"tabbar_info.png"] forState:UIControlStateNormal];
+    [button2 addTarget:self action:@selector(refreshArticle:) forControlEvents:UIControlEventTouchDown];
     button2.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:button2];
 
@@ -86,7 +86,17 @@
         default:
             break;
     }
+}
+
+- (void)refreshArticle:(UIButton *)sender
+{
+    self.pmCC = [[PMCalendarController alloc] init];
+    self.pmCC.delegate = self;
+    self.pmCC.mondayFirstDayOfWeek = YES;
     
+    [self.pmCC presentCalendarFromView:sender
+         permittedArrowDirections:PMCalendarArrowDirectionAny
+                         animated:YES];
 }
 
 @end
