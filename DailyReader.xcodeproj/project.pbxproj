@@ -12,6 +12,16 @@
 		6C6F4C9919FD0072005E52FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C6F4C9819FD0072005E52FE /* Images.xcassets */; };
 		6C6F4C9C19FD0072005E52FE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C6F4C9A19FD0072005E52FE /* LaunchScreen.xib */; };
 		6C6F4CA819FD0072005E52FE /* DailyReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C6F4CA719FD0072005E52FE /* DailyReaderTests.m */; };
+		CF46749219FE867A001625A8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF46749119FE867A001625A8 /* MainMenu.xib */; };
+		CF55B6CB1A02787B00944E80 /* DailyReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF55B6CA1A02787B00944E80 /* DailyReaderViewController.m */; };
+		CF55B6DB1A027A8800944E80 /* tabbar_client_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = CF55B6D31A027A8800944E80 /* tabbar_client_selected.png */; };
+		CF55B6DC1A027A8800944E80 /* tabbar_client.png in Resources */ = {isa = PBXBuildFile; fileRef = CF55B6D41A027A8800944E80 /* tabbar_client.png */; };
+		CF55B6DD1A027A8800944E80 /* tabbar_info_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = CF55B6D51A027A8800944E80 /* tabbar_info_selected.png */; };
+		CF55B6DE1A027A8800944E80 /* tabbar_info.png in Resources */ = {isa = PBXBuildFile; fileRef = CF55B6D61A027A8800944E80 /* tabbar_info.png */; };
+		CF55B6DF1A027A8800944E80 /* tabbar_more_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = CF55B6D71A027A8800944E80 /* tabbar_more_selected.png */; };
+		CF55B6E01A027A8800944E80 /* tabbar_more.png in Resources */ = {isa = PBXBuildFile; fileRef = CF55B6D81A027A8800944E80 /* tabbar_more.png */; };
+		CF55B6E11A027A8800944E80 /* tabbar_product_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = CF55B6D91A027A8800944E80 /* tabbar_product_selected.png */; };
+		CF55B6E21A027A8800944E80 /* tabbar_product.png in Resources */ = {isa = PBXBuildFile; fileRef = CF55B6DA1A027A8800944E80 /* tabbar_product.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +45,17 @@
 		6C6F4CA119FD0072005E52FE /* DailyReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C6F4CA619FD0072005E52FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C6F4CA719FD0072005E52FE /* DailyReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DailyReaderTests.m; sourceTree = "<group>"; };
+		CF46749119FE867A001625A8 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		CF55B6C91A02787B00944E80 /* DailyReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyReaderViewController.h; sourceTree = "<group>"; };
+		CF55B6CA1A02787B00944E80 /* DailyReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyReaderViewController.m; sourceTree = "<group>"; };
+		CF55B6D31A027A8800944E80 /* tabbar_client_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_client_selected.png; path = DailyReader/Resources/tabbar_client_selected.png; sourceTree = "<group>"; };
+		CF55B6D41A027A8800944E80 /* tabbar_client.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_client.png; path = DailyReader/Resources/tabbar_client.png; sourceTree = "<group>"; };
+		CF55B6D51A027A8800944E80 /* tabbar_info_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_info_selected.png; path = DailyReader/Resources/tabbar_info_selected.png; sourceTree = "<group>"; };
+		CF55B6D61A027A8800944E80 /* tabbar_info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_info.png; path = DailyReader/Resources/tabbar_info.png; sourceTree = "<group>"; };
+		CF55B6D71A027A8800944E80 /* tabbar_more_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_more_selected.png; path = DailyReader/Resources/tabbar_more_selected.png; sourceTree = "<group>"; };
+		CF55B6D81A027A8800944E80 /* tabbar_more.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_more.png; path = DailyReader/Resources/tabbar_more.png; sourceTree = "<group>"; };
+		CF55B6D91A027A8800944E80 /* tabbar_product_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_product_selected.png; path = DailyReader/Resources/tabbar_product_selected.png; sourceTree = "<group>"; };
+		CF55B6DA1A027A8800944E80 /* tabbar_product.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tabbar_product.png; path = DailyReader/Resources/tabbar_product.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +79,7 @@
 		6C6F4C8519FD0072005E52FE = {
 			isa = PBXGroup;
 			children = (
+				CF55B6D21A027A2D00944E80 /* Resources */,
 				6C6F4C9019FD0072005E52FE /* DailyReader */,
 				6C6F4CA419FD0072005E52FE /* DailyReaderTests */,
 				6C6F4C8F19FD0072005E52FE /* Products */,
@@ -76,10 +98,13 @@
 		6C6F4C9019FD0072005E52FE /* DailyReader */ = {
 			isa = PBXGroup;
 			children = (
+				CF55B6C91A02787B00944E80 /* DailyReaderViewController.h */,
+				CF55B6CA1A02787B00944E80 /* DailyReaderViewController.m */,
 				6C6F4C9519FD0072005E52FE /* AppDelegate.h */,
 				6C6F4C9619FD0072005E52FE /* AppDelegate.m */,
 				6C6F4C9819FD0072005E52FE /* Images.xcassets */,
 				6C6F4C9A19FD0072005E52FE /* LaunchScreen.xib */,
+				CF46749119FE867A001625A8 /* MainMenu.xib */,
 				6C6F4C9119FD0072005E52FE /* Supporting Files */,
 			);
 			path = DailyReader;
@@ -109,6 +134,21 @@
 				6C6F4CA619FD0072005E52FE /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CF55B6D21A027A2D00944E80 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CF55B6D31A027A8800944E80 /* tabbar_client_selected.png */,
+				CF55B6D41A027A8800944E80 /* tabbar_client.png */,
+				CF55B6D51A027A8800944E80 /* tabbar_info_selected.png */,
+				CF55B6D61A027A8800944E80 /* tabbar_info.png */,
+				CF55B6D71A027A8800944E80 /* tabbar_more_selected.png */,
+				CF55B6D81A027A8800944E80 /* tabbar_more.png */,
+				CF55B6D91A027A8800944E80 /* tabbar_product_selected.png */,
+				CF55B6DA1A027A8800944E80 /* tabbar_product.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,8 +231,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF55B6E01A027A8800944E80 /* tabbar_more.png in Resources */,
+				CF55B6DE1A027A8800944E80 /* tabbar_info.png in Resources */,
+				CF55B6E21A027A8800944E80 /* tabbar_product.png in Resources */,
+				CF55B6DF1A027A8800944E80 /* tabbar_more_selected.png in Resources */,
+				CF55B6DD1A027A8800944E80 /* tabbar_info_selected.png in Resources */,
 				6C6F4C9C19FD0072005E52FE /* LaunchScreen.xib in Resources */,
 				6C6F4C9919FD0072005E52FE /* Images.xcassets in Resources */,
+				CF46749219FE867A001625A8 /* MainMenu.xib in Resources */,
+				CF55B6DC1A027A8800944E80 /* tabbar_client.png in Resources */,
+				CF55B6E11A027A8800944E80 /* tabbar_product_selected.png in Resources */,
+				CF55B6DB1A027A8800944E80 /* tabbar_client_selected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF55B6CB1A02787B00944E80 /* DailyReaderViewController.m in Sources */,
 				6C6F4C9719FD0072005E52FE /* AppDelegate.m in Sources */,
 				6C6F4C9419FD0072005E52FE /* main.m in Sources */,
 			);

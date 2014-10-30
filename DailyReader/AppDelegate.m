@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DailyReaderViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,13 +18,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    UILabel *helloLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 200, 100)];
-    [helloLabel setTextAlignment:NSTextAlignmentCenter];  // 设置Label文本对齐方式为居中
-    [helloLabel setBackgroundColor:[UIColor redColor]];   // 设置Label背景色为红色
-    [helloLabel setText:@"Hello, lmm!!!"];  // 设置Label的文字
-    [self.window addSubview:helloLabel];    // 将Label这个View增加到窗口
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    DailyReaderViewController *v = [[DailyReaderViewController alloc] init];
+    [self.window setRootViewController:v];
     [self.window makeKeyAndVisible];
     return YES;
 }
