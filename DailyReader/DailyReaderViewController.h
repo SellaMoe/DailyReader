@@ -6,6 +6,7 @@
 //  Copyright (c) 2014年 Oran Wu. All rights reserved.
 //
 #import <UIKit/UIKit.h>
+#import "PMCalendarController.h"
 
 @interface DailyReaderViewController : UIViewController
 
@@ -18,7 +19,7 @@ enum DayNightMode
 
 @property (strong, nonatomic) UITextView *myTextField;
 @property enum DayNightMode mode;
-
+@property (nonatomic, strong) PMCalendarController *pmCC;
 
 
 @end
