@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C6A0A851A029114007BA57E /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C6A0A841A029114007BA57E /* Singleton.m */; };
+		6C6A0A8B1A029626007BA57E /* HttpClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C6A0A8A1A029626007BA57E /* HttpClientManager.m */; };
 		6C6F4C9419FD0072005E52FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C6F4C9319FD0072005E52FE /* main.m */; };
 		6C6F4C9719FD0072005E52FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C6F4C9619FD0072005E52FE /* AppDelegate.m */; };
 		6C6F4C9919FD0072005E52FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C6F4C9819FD0072005E52FE /* Images.xcassets */; };
@@ -35,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6C6A0A831A029108007BA57E /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		6C6A0A841A029114007BA57E /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
+		6C6A0A891A02961B007BA57E /* HttpClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClientManager.h; sourceTree = "<group>"; };
+		6C6A0A8A1A029626007BA57E /* HttpClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClientManager.m; sourceTree = "<group>"; };
 		6C6F4C8E19FD0072005E52FE /* DailyReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C6F4C9219FD0072005E52FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C6F4C9319FD0072005E52FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -76,11 +82,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C6A0A821A02907B007BA57E /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				6C6A0A831A029108007BA57E /* Singleton.h */,
+				6C6A0A841A029114007BA57E /* Singleton.m */,
+			);
+			name = Foundation;
+			path = DailyReader/Foundation;
+			sourceTree = "<group>";
+		};
+		6C6A0A881A0295BD007BA57E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				6C6A0A891A02961B007BA57E /* HttpClientManager.h */,
+				6C6A0A8A1A029626007BA57E /* HttpClientManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		6C6F4C8519FD0072005E52FE = {
 			isa = PBXGroup;
 			children = (
-				CF55B6D21A027A2D00944E80 /* Resources */,
+				6C6A0A821A02907B007BA57E /* Foundation */,
 				6C6F4C9019FD0072005E52FE /* DailyReader */,
+				CF55B6D21A027A2D00944E80 /* Resources */,
 				6C6F4CA419FD0072005E52FE /* DailyReaderTests */,
 				6C6F4C8F19FD0072005E52FE /* Products */,
 			);
@@ -98,6 +124,7 @@
 		6C6F4C9019FD0072005E52FE /* DailyReader */ = {
 			isa = PBXGroup;
 			children = (
+				6C6A0A881A0295BD007BA57E /* Manager */,
 				CF55B6C91A02787B00944E80 /* DailyReaderViewController.h */,
 				CF55B6CA1A02787B00944E80 /* DailyReaderViewController.m */,
 				6C6F4C9519FD0072005E52FE /* AppDelegate.h */,
@@ -262,6 +289,8 @@
 				CF55B6CB1A02787B00944E80 /* DailyReaderViewController.m in Sources */,
 				6C6F4C9719FD0072005E52FE /* AppDelegate.m in Sources */,
 				6C6F4C9419FD0072005E52FE /* main.m in Sources */,
+				6C6A0A8B1A029626007BA57E /* HttpClientManager.m in Sources */,
+				6C6A0A851A029114007BA57E /* Singleton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +404,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				INFOPLIST_FILE = DailyReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -385,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				INFOPLIST_FILE = DailyReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
