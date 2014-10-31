@@ -31,6 +31,7 @@
 		CF55B6F81A028EA700944E80 /* PMDimmingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF55B6EF1A028EA700944E80 /* PMDimmingView.m */; };
 		CF55B6F91A028EA700944E80 /* PMPeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = CF55B6F11A028EA700944E80 /* PMPeriod.m */; };
 		CF55B6FA1A028EA700944E80 /* PMSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF55B6F31A028EA700944E80 /* PMSelectionView.m */; };
+		CF55B6FD1A03013200944E80 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = CF55B6FC1A03013200944E80 /* Util.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,8 @@
 		CF55B6F11A028EA700944E80 /* PMPeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMPeriod.m; path = Calendar/PMPeriod.m; sourceTree = "<group>"; };
 		CF55B6F21A028EA700944E80 /* PMSelectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMSelectionView.h; path = Calendar/PMSelectionView.h; sourceTree = "<group>"; };
 		CF55B6F31A028EA700944E80 /* PMSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMSelectionView.m; path = Calendar/PMSelectionView.m; sourceTree = "<group>"; };
+		CF55B6FB1A03011C00944E80 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		CF55B6FC1A03013200944E80 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +160,8 @@
 				6C6F4C9A19FD0072005E52FE /* LaunchScreen.xib */,
 				CF46749119FE867A001625A8 /* MainMenu.xib */,
 				6C6F4C9119FD0072005E52FE /* Supporting Files */,
+				CF55B6FB1A03011C00944E80 /* Util.h */,
+				CF55B6FC1A03013200944E80 /* Util.m */,
 			);
 			path = DailyReader;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF55B6FD1A03013200944E80 /* Util.m in Sources */,
 				CF55B6F61A028EA700944E80 /* PMCalendarController.m in Sources */,
 				CF55B6F71A028EA700944E80 /* PMCalendarView.m in Sources */,
 				CF55B6F41A028EA700944E80 /* NSDate+Helpers.m in Sources */,
