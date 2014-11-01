@@ -7,10 +7,11 @@
 //
 
 #import "DailyReaderViewController.h"
-#import "Manager/HttpClientManager.h"
 #import "Util.h"
+#import "MKNetworkKit/MKNetworkKit.h"
 
-NSString *DATE_FORMAT = @"http://www.magicapp.cn/app/tonight/get_article.php?date=%@";
+NSString *SERVER_HOST = @"www.magicapp.cn";
+NSString *DATE_FORMAT = @"app/tonight/get_article.php?date=%@";
 
 @implementation DailyReaderViewController
 
@@ -100,6 +101,27 @@ NSString *DATE_FORMAT = @"http://www.magicapp.cn/app/tonight/get_article.php?dat
                          animated:YES];
 }
 
+-(void) requestPost: (NSString*) url
+{
+    MKNetworkEngine *engine = [[MKNetworkEngine alloc] initWithHostName:@"www.magicapp.cn" customHeaderFields:nil];
+    MKNetworkOperation *op = [engine operationWithPath:url params:nil httpMethod:@"POST"];
+    [op addCompletionHandler:^(MKNetworkOperation *operation)
+    {
+         NSData* received = [operation responseData];
+         NSLog(@"response : %@", received);
+         NSString *jsonString = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
+         NSData* jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+         NSDictionary* dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableLeaves error:nil];
+         NSDictionary* arrayResult =[dic objectForKey:@"DATA"];
+         self.myTextField.text = [arrayResult objectForKey:@"detail"];
+         
+     } errorHandler:^(MKNetworkOperation *errorOP, NSError *err)
+     {
+         NSLog(@"MKNET 请求错误 : %@", [err localizedDescription]);
+     }];
+    [engine enqueueOperation:op];
+}
+
 - (void)refreshArticle:(UIButton *)sender
 {
     NSString *randomDate = [Util randomDate];
@@ -108,9 +130,9 @@ NSString *DATE_FORMAT = @"http://www.magicapp.cn/app/tonight/get_article.php?dat
     
     NSLog(randomDate);
     
-    NSURL *url = [NSURL URLWithString:formatedURL];
-    NSString* showData = [[HttpClientManager sharedInstance] requestPost:url];
-    self.myTextField.text = showData;
+    [self requestPost:formatedURL];
+  //  NSURL *url = [NSURL URLWithString:formatedURL];
+  //  NSString* showData = [[HttpClientManager sharedInstance] requestPost:url];
 }
 
 @end
