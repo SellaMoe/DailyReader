@@ -49,6 +49,7 @@
  */
 - (void)presentCalendarFromView:(UIView *) anchorView 
        permittedArrowDirections:(PMCalendarArrowDirection) arrowDirections
+                rectInAppWindow:(CGRect)rectInWindow
                        animated:(BOOL) animated;
 
 /**

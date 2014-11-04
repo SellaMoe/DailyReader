@@ -19,7 +19,9 @@ enum DayNightMode
 
 @property (strong, nonatomic) UITextView *myTextField;
 @property enum DayNightMode mode;
-@property (nonatomic, strong) PMCalendarController *pmCC;
-
+@property (strong, nonatomic) PMCalendarController *pmCC;
+@property (strong, nonatomic) UIView *btnsGroup;
+@property (strong, nonatomic) UIImageView *articleBackground;
+@property (nonatomic) BOOL btnGruopVisible;
 
 @end

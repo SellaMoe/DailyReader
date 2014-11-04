@@ -276,6 +276,7 @@ NSString *kPMCalendarRedrawNotification = @"kPMCalendarRedrawNotification";
 
 - (void) presentCalendarFromView:(UIView *) anchorView 
         permittedArrowDirections:(PMCalendarArrowDirection) arrowDirections
+                 rectInAppWindow:(CGRect)rectInWindow
                         animated:(BOOL) animated
 {
     self.anchorView = anchorView;
@@ -284,12 +285,14 @@ NSString *kPMCalendarRedrawNotification = @"kPMCalendarRedrawNotification";
     [self presentCalendarFromRect:anchorView.frame
                            inView:self.anchorView.superview
          permittedArrowDirections:arrowDirections
+                  rectInAppWindow:rectInWindow
                          animated:animated];
 }
 
 - (void) presentCalendarFromRect:(CGRect) rect 
                           inView:(UIView *) view
         permittedArrowDirections:(PMCalendarArrowDirection) arrowDirections
+                 rectInAppWindow:(CGRect) rectInWindow
                         animated:(BOOL) animated
 {
     self.view = [[PMDimmingView alloc] initWithFrame:view.bounds
@@ -298,9 +301,9 @@ NSString *kPMCalendarRedrawNotification = @"kPMCalendarRedrawNotification";
     [self.view addSubview:self.mainView];
     [view addSubview:self.view];
 
-    CGRect rectInAppWindow = [self.view convertRect:rect fromView:view];
+//    CGRect rectInAppWindow = [self.view convertRect:rect fromView:view];
     [self adjustCalendarPositionForPermittedArrowDirections:arrowDirections
-                                          arrowPointsToRect:rectInAppWindow];
+                                          arrowPointsToRect:rectInWindow];
 
     [self fullRedraw];
     
@@ -440,7 +443,7 @@ NSString *kPMCalendarRedrawNotification = @"kPMCalendarRedrawNotification";
         frm.origin.y = self.mainView.bounds.size.height - frm.size.height;
         calendarViewFrame.origin.y = frm.origin.y;
     }
-    self.calendarView.frame = calendarViewFrame;
+//    self.calendarView.frame = calendarViewFrame;
     
     // TODO: recalculate arrow position for left & right
 //    else if ((self.calendarArrowDirection == PMCalendarArrowDirectionLeft) 
@@ -450,7 +453,7 @@ NSString *kPMCalendarRedrawNotification = @"kPMCalendarRedrawNotification";
 //        self.backgroundView.arrowPosition = 
 //    }
     
-    self.backgroundView.frame = frm;
+//    self.backgroundView.frame = frm;
     [self fullRedraw];
 }
 

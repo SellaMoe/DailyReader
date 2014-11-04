@@ -26,11 +26,11 @@ static const int MONTH_NUM = 12;
     
     //返回之前的日期
     NSDate *currentDate = [NSDate date];
-    NSDateFormatter  *dateformatter=[[NSDateFormatter alloc] init];
+    NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
     [dateformatter setDateFormat:@"YYYY-MM-dd"];
-    NSString *currentDateString=[dateformatter stringFromDate:currentDate];
+    NSString *currentDateString = [dateformatter stringFromDate:currentDate];
 
-    unsigned units  = NSMonthCalendarUnit|NSDayCalendarUnit|NSYearCalendarUnit;
+    unsigned units = NSMonthCalendarUnit|NSDayCalendarUnit|NSYearCalendarUnit;
     NSCalendar *myCal = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *comp = [myCal components:units fromDate:currentDate];
     NSInteger currentMonth = [comp month];

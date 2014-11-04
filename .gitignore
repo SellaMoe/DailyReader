@@ -14,3 +14,7 @@ build/*
 *.pbxuser
 *.xcworkspace
 xcuserdata
+
+DailyReader/DailyReaderViewController.m
+
+DailyReader/DailyReaderViewController.m

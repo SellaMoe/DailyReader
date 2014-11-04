@@ -11,6 +11,7 @@
 #import "PMCalendarConstants.h"
 #import "NSDate+Helpers.h"
 #import "PMSelectionView.h"
+#import "Util.h"
 
 @interface PMDaysView : UIView
 
@@ -346,7 +347,17 @@
     
     NSInteger days = row * 7 + col - monthStartDay;
     NSDate *selectedDate = [monthStartDate dateByAddingDays:days];
-
+    
+    unsigned units = NSMonthCalendarUnit|NSDayCalendarUnit|NSYearCalendarUnit;
+    NSCalendar *myCal = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *comp = [myCal components:units fromDate:selectedDate];
+    NSInteger selectedYear = [comp year];
+    NSInteger selectedMonth = [comp month];
+    NSInteger selectedDay = [comp day];
+    NSString *selectedDateStr = [[NSString alloc] initWithString:[NSString stringWithFormat:@"%d-%d-%d", selectedYear, selectedMonth, selectedDay]];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:DATE_SELECTED
+                                                        object:selectedDateStr];
     return selectedDate;
 }
 

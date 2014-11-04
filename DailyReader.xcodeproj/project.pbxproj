@@ -43,6 +43,7 @@
 		CF55B6F91A028EA700944E80 /* PMPeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = CF55B6F11A028EA700944E80 /* PMPeriod.m */; };
 		CF55B6FA1A028EA700944E80 /* PMSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF55B6F31A028EA700944E80 /* PMSelectionView.m */; };
 		CF55B6FD1A03013200944E80 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = CF55B6FC1A03013200944E80 /* Util.m */; };
+		CF6156921A091BC8005582B6 /* UILoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6156911A091BC8005582B6 /* UILoadingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,8 @@
 		CF55B6F31A028EA700944E80 /* PMSelectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMSelectionView.m; path = Calendar/PMSelectionView.m; sourceTree = "<group>"; };
 		CF55B6FB1A03011C00944E80 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		CF55B6FC1A03013200944E80 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		CF6156901A091BC8005582B6 /* UILoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILoadingView.h; sourceTree = "<group>"; };
+		CF6156911A091BC8005582B6 /* UILoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILoadingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +232,8 @@
 		6C6F4C9019FD0072005E52FE /* DailyReader */ = {
 			isa = PBXGroup;
 			children = (
+				CF6156901A091BC8005582B6 /* UILoadingView.h */,
+				CF6156911A091BC8005582B6 /* UILoadingView.m */,
 				6C6A0A881A0295BD007BA57E /* Manager */,
 				CF55B6E31A028E3F00944E80 /* Calendar */,
 				CF55B6C91A02787B00944E80 /* DailyReaderViewController.h */,
@@ -429,6 +434,7 @@
 				6C6F4C9419FD0072005E52FE /* main.m in Sources */,
 				6C4EE4761A05154900C04D32 /* NSData+MKBase64.m in Sources */,
 				6C4EE47E1A05154900C04D32 /* Reachability.m in Sources */,
+				CF6156921A091BC8005582B6 /* UILoadingView.m in Sources */,
 				6C4EE47C1A05154900C04D32 /* MKNetworkEngine.m in Sources */,
 				6C4EE4771A05154900C04D32 /* NSDate+RFC1123.m in Sources */,
 				6C4EE4781A05154900C04D32 /* NSDictionary+RequestEncoding.m in Sources */,

@@ -20,6 +20,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
+    [[UIApplication sharedApplication]setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    
     DailyReaderViewController *v = [[DailyReaderViewController alloc] init];
     [self.window setRootViewController:v];
     [self.window makeKeyAndVisible];
