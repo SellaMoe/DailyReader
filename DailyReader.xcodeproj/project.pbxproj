@@ -82,7 +82,7 @@
 		6C4EE4731A05154900C04D32 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		6C4EE4741A05154900C04D32 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		6C4EE4851A05196B00C04D32 /* DailyReader-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DailyReader-Prefix.pch"; sourceTree = "<group>"; };
-		6C6F4C8E19FD0072005E52FE /* DailyReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C6F4C8E19FD0072005E52FE /* magic夜读.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "magic夜读.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C6F4C9219FD0072005E52FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C6F4C9319FD0072005E52FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6C6F4C9519FD0072005E52FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -223,7 +223,7 @@
 		6C6F4C8F19FD0072005E52FE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6C6F4C8E19FD0072005E52FE /* DailyReader.app */,
+				6C6F4C8E19FD0072005E52FE /* magic夜读.app */,
 				6C6F4CA119FD0072005E52FE /* DailyReaderTests.xctest */,
 			);
 			name = Products;
@@ -332,7 +332,7 @@
 			);
 			name = DailyReader;
 			productName = DailyReader;
-			productReference = 6C6F4C8E19FD0072005E52FE /* DailyReader.app */;
+			productReference = 6C6F4C8E19FD0072005E52FE /* magic夜读.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6C6F4CA019FD0072005E52FE /* DailyReaderTests */ = {
@@ -568,7 +568,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "magic夜读";
 			};
 			name = Debug;
 		};
@@ -585,7 +585,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				LD_RUNPATH_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "magic夜读";
 			};
 			name = Release;
 		};
