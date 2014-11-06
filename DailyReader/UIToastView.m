@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UILoadingView.h"
+#import "UIToastView.h"
 
 //加载菊花的大小
 static const float ACTIVITY_VIEW_SIZE = 40.0f;
@@ -25,7 +25,7 @@ green:(nGreen)/255.0f \
 blue:(nBlue)/255.0f \
 alpha:nAlpha]
 
-@implementation UILoadingView
+@implementation UIToastView
 
 - (id)init
 {
@@ -33,6 +33,11 @@ alpha:nAlpha]
     {
         return nil;
     }
+    return self;
+}
+
+-(void) setToastType:(int)toastType withToast:(NSString*)toast toastTime:(float)duration
+{
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     self.frame = screenRect;
@@ -42,22 +47,35 @@ alpha:nAlpha]
     [self.loadingBackGround setImage:[UIImage imageNamed:@"background.png"]];
     [self addSubview:self.loadingBackGround];
     
-    UIActivityIndicatorView* activityIndicatorView = [[UIActivityIndicatorView  alloc ]
-                                                      initWithFrame:CGRectMake(self.loadingBackGround.frame.size.width / 8 - ACTIVITY_VIEW_SIZE / 2, self.loadingBackGround.frame.size.height / 2 - ACTIVITY_VIEW_SIZE / 2, ACTIVITY_VIEW_SIZE, ACTIVITY_VIEW_SIZE)];
-    activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
-    [activityIndicatorView startAnimating];
+    if (toastType == 1)
+    {
+        UIActivityIndicatorView* activityIndicatorView = [[UIActivityIndicatorView  alloc ]
+                                                          initWithFrame:CGRectMake(self.loadingBackGround.frame.size.width / 8 - ACTIVITY_VIEW_SIZE / 2, self.loadingBackGround.frame.size.height / 2 - ACTIVITY_VIEW_SIZE / 2, ACTIVITY_VIEW_SIZE, ACTIVITY_VIEW_SIZE)];
+        activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
+        [activityIndicatorView startAnimating];
+        [self.loadingBackGround addSubview:activityIndicatorView];
+    }
     
     self.loadingTips = [[UILabel alloc] initWithFrame:self.loadingBackGround.frame];
-    [self.loadingTips setText:LOADING_TIPS];
+    [self.loadingTips setText:toast];
+    self.loadingTips.textColor = [UIColor whiteColor];
     [self.loadingTips setTextAlignment:NSTextAlignmentCenter];
     self.loadingTips.center = CGPointMake(self.loadingBackGround.frame.size.width / 2,
                                           self.loadingBackGround.frame.size.height / 2);
-
+    
     
     [self.loadingBackGround addSubview:self.loadingTips];
-    [self.loadingBackGround addSubview:activityIndicatorView];
     
-    return self;
+    
+    if (duration > 0)
+    {
+        [NSTimer scheduledTimerWithTimeInterval:duration target:self selector:@selector(hide:) userInfo:nil repeats:NO];
+    }
+}
+
+- (void)hide:(NSTimer *)timer
+{
+    [self removeFromSuperview];
 }
 
 @end

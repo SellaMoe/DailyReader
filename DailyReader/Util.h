@@ -7,10 +7,10 @@
 //
 #import <Foundation/Foundation.h>
 
-extern NSString *DATE_SELECTED;
-
 @interface Util : NSObject
 
 + (NSString*) randomDate;
+
++ (NSString*) currentDate;
 
 @end

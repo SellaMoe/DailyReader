@@ -132,56 +132,57 @@ NSString *kPMCalendarRedrawNotification = @"kPMCalendarRedrawNotification";
 - (void) adjustCalendarPositionForPermittedArrowDirections:(PMCalendarArrowDirection) arrowDirections 
                                          arrowPointsToRect:(CGRect)rect
 {
-    if (arrowDirections & PMCalendarArrowDirectionUp)
-    {
-        if ((CGRectGetMaxY(rect) + self.size.height + arrowSize.height <= self.view.bounds.size.height)
-            && (CGRectGetMidX(rect) >= (arrowSize.width / 2 + cornerRadius + shadowPadding))
-            && (CGRectGetMidX(rect) <= (self.view.bounds.size.width - arrowSize.width / 2 - cornerRadius - shadowPadding)))
-        {
-            self.calendarArrowDirection = PMCalendarArrowDirectionUp;
-        }
-    }
+//    if (arrowDirections & PMCalendarArrowDirectionUp)
+//    {
+//        if ((CGRectGetMaxY(rect) + self.size.height + arrowSize.height <= self.view.bounds.size.height)
+//            && (CGRectGetMidX(rect) >= (arrowSize.width / 2 + cornerRadius + shadowPadding))
+//            && (CGRectGetMidX(rect) <= (self.view.bounds.size.width - arrowSize.width / 2 - cornerRadius - shadowPadding)))
+//        {
+//            self.calendarArrowDirection = PMCalendarArrowDirectionUp;
+//        }
+//    }
+//    
+//    if ((_calendarArrowDirection == PMCalendarArrowDirectionUnknown) 
+//        && (arrowDirections & PMCalendarArrowDirectionLeft))
+//    {
+//        if ((CGRectGetMidX(rect) + self.size.width + arrowSize.height <= self.view.bounds.size.width)
+//            && (CGRectGetMidY(rect) >= (arrowSize.width / 2 + cornerRadius + shadowPadding))
+//            && (CGRectGetMidY(rect) <= (self.view.bounds.size.height - arrowSize.width / 2 - cornerRadius - shadowPadding)))
+//            
+//        {
+//            self.calendarArrowDirection = PMCalendarArrowDirectionLeft;
+//        }
+//    }
+//    
+//    if ((_calendarArrowDirection == PMCalendarArrowDirectionUnknown) 
+//        && (arrowDirections & PMCalendarArrowDirectionDown))
+//    {
+//        if ((CGRectGetMidY(rect) - self.size.height - arrowSize.height >= 0)
+//            && (CGRectGetMidX(rect) >= (arrowSize.width / 2 + cornerRadius + shadowPadding))
+//            && (CGRectGetMidX(rect) <= (self.view.bounds.size.width - arrowSize.width / 2 - cornerRadius - shadowPadding)))
+//        {
+//            self.calendarArrowDirection = PMCalendarArrowDirectionDown;
+//        }
+//    }
+//    
+//    if ((_calendarArrowDirection == PMCalendarArrowDirectionUnknown) 
+//        && (arrowDirections & PMCalendarArrowDirectionRight))
+//    {
+//        if ((CGRectGetMidX(rect) - self.size.width - arrowSize.height >= 0)
+//            && (CGRectGetMidY(rect) >= (arrowSize.width / 2 + cornerRadius + shadowPadding))
+//            && (CGRectGetMidY(rect) <= (self.view.bounds.size.height - arrowSize.width / 2 - cornerRadius - shadowPadding)))
+//        {
+//            self.calendarArrowDirection = PMCalendarArrowDirectionRight;
+//        }
+//    }
+//    
+//    if (_calendarArrowDirection == PMCalendarArrowDirectionUnknown) // nothing suits
+//    {
+//        // TODO: check rect's quad and pick direction automatically
+//        self.calendarArrowDirection = PMCalendarArrowDirectionUp;
+//    }
     
-    if ((_calendarArrowDirection == PMCalendarArrowDirectionUnknown) 
-        && (arrowDirections & PMCalendarArrowDirectionLeft))
-    {
-        if ((CGRectGetMidX(rect) + self.size.width + arrowSize.height <= self.view.bounds.size.width)
-            && (CGRectGetMidY(rect) >= (arrowSize.width / 2 + cornerRadius + shadowPadding))
-            && (CGRectGetMidY(rect) <= (self.view.bounds.size.height - arrowSize.width / 2 - cornerRadius - shadowPadding)))
-            
-        {
-            self.calendarArrowDirection = PMCalendarArrowDirectionLeft;
-        }
-    }
-    
-    if ((_calendarArrowDirection == PMCalendarArrowDirectionUnknown) 
-        && (arrowDirections & PMCalendarArrowDirectionDown))
-    {
-        if ((CGRectGetMidY(rect) - self.size.height - arrowSize.height >= 0)
-            && (CGRectGetMidX(rect) >= (arrowSize.width / 2 + cornerRadius + shadowPadding))
-            && (CGRectGetMidX(rect) <= (self.view.bounds.size.width - arrowSize.width / 2 - cornerRadius - shadowPadding)))
-        {
-            self.calendarArrowDirection = PMCalendarArrowDirectionDown;
-        }
-    }
-    
-    if ((_calendarArrowDirection == PMCalendarArrowDirectionUnknown) 
-        && (arrowDirections & PMCalendarArrowDirectionRight))
-    {
-        if ((CGRectGetMidX(rect) - self.size.width - arrowSize.height >= 0)
-            && (CGRectGetMidY(rect) >= (arrowSize.width / 2 + cornerRadius + shadowPadding))
-            && (CGRectGetMidY(rect) <= (self.view.bounds.size.height - arrowSize.width / 2 - cornerRadius - shadowPadding)))
-        {
-            self.calendarArrowDirection = PMCalendarArrowDirectionRight;
-        }
-    }
-    
-    if (_calendarArrowDirection == PMCalendarArrowDirectionUnknown) // nothing suits
-    {
-        // TODO: check rect's quad and pick direction automatically
-        self.calendarArrowDirection = PMCalendarArrowDirectionUp;
-    }
-    
+    self.calendarArrowDirection = PMCalendarArrowDirectionDown;
     CGRect calendarFrame = self.mainView.frame;
     CGRect frm = CGRectMake(self.calendarView.frame.origin.x
                             , self.calendarView.frame.origin.y

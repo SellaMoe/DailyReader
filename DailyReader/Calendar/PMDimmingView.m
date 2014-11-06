@@ -10,6 +10,7 @@
 #import "PMCalendarConstants.h"
 #import "PMCalendarController.h"
 #import "PMCalendarHelpers.h"
+#import "Constant.h"
 
 @implementation PMDimmingView
 
@@ -33,7 +34,9 @@
     if (![self.controller.delegate respondsToSelector:@selector(calendarControllerShouldDismissCalendar:)]
         || [self.controller.delegate calendarControllerShouldDismissCalendar:self.controller])
     {
-        [self.controller dismissCalendarAnimated:YES];
+//        [self.controller dismissCalendarAnimated:YES];
+        [[NSNotificationCenter defaultCenter] postNotificationName:DISMISS_CALENDAR
+                                                            object:nil];
     }
 }
 

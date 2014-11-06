@@ -7,7 +7,13 @@
 //
 #import <UIKit/UIKit.h>
 
-@interface UILoadingView : UIView
+//enum ToastType
+//{
+//    TT_LOADING = 0,
+//    TT_ALERT = 1
+//};
+
+@interface UIToastView : UIView
 
 //加载背景图
 @property (strong, nonatomic) UIImageView *loadingBackGround;
@@ -17,5 +23,7 @@
 
 //压黑的背景
 @property (strong, nonatomic) UIView *darkBackground;
+
+-(void) setToastType:(int)toastType withToast:(NSString*)toast toastTime:(float)duration;
 
 @end

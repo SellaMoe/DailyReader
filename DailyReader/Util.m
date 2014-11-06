@@ -24,7 +24,6 @@ static const int MONTH_NUM = 12;
     
 //    return astring;
     
-    //返回之前的日期
     NSDate *currentDate = [NSDate date];
     NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
     [dateformatter setDateFormat:@"YYYY-MM-dd"];
@@ -55,7 +54,21 @@ static const int MONTH_NUM = 12;
     {
         return astring;
     }
+}
+
++ (NSString*) currentDate
+{
+    NSDate *currentDate = [NSDate date];
+    unsigned units = NSMonthCalendarUnit|NSDayCalendarUnit|NSYearCalendarUnit;
+    NSCalendar *myCal = [[NSCalendar alloc]initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *comp = [myCal components:units fromDate:currentDate];
+    NSInteger currentYear = [comp year];
+    NSInteger currentMonth = [comp month];
+    NSInteger currentDay = [comp day];
     
+    NSString *currentDateString = [[NSString alloc] initWithString:[NSString stringWithFormat:@"%ld-%ld-%ld", currentYear, currentMonth, (long)currentDay]];
+    
+    return currentDateString;
 }
 
 @end

@@ -9,15 +9,13 @@
 #import "DailyReaderViewController.h"
 #import "Util.h"
 #import "MKNetworkKit/MKNetworkKit.h"
-#import "UILoadingView.h"
-
-NSString *SERVER_HOST = @"www.magicapp.cn";
-NSString *DATE_FORMAT = @"app/tonight/get_article.php?date=%@";
-
-NSString *DATE_SELECTED = @"DateSelected";
+#import "UIToastView.h"
+#import "Constant.h"
 
 //按钮高度
-static const int BTNS_HEIGHT = 40;
+static const int BTNS_HEIGHT = 50;
+
+static const float TOAST_DURATION = 1.5f;
 
 @implementation DailyReaderViewController
 
@@ -26,12 +24,20 @@ static const int BTNS_HEIGHT = 40;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.mode = DAY;
-        self.btnGruopVisible = true;
+        self.btnGruopVisible = YES;
+        self.isLoading = NO;
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(clickCalendarForArticle:)
                                                      name:DATE_SELECTED
                                                    object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(clickCalendarDismissed:)
+                                                     name:DISMISS_CALENDAR
+                                                   object:nil];
+        
+        self.colorEgg = 0;
     }
     return self;
 }
@@ -43,7 +49,7 @@ static const int BTNS_HEIGHT = 40;
     CGRect rect = [[UIScreen mainScreen] bounds];
     
     self.articleBackground = [[UIImageView alloc] initWithFrame:rect];
-    [self.articleBackground setImage:[UIImage imageNamed:@"article_background_day.jpg"]];
+    [self.articleBackground setImage:[UIImage imageNamed:ARTICAL_BACKGROUND_DAY]];
     
     rect.origin.y += 20;
     rect.size.height -= 20;
@@ -77,6 +83,7 @@ static const int BTNS_HEIGHT = 40;
     CGRect btnGroupFrame = CGRectMake(0, screenSize.size.height - BTNS_HEIGHT,
                                       screenSize.size.width, BTNS_HEIGHT);
     self.btnsGroup = [[UIView alloc] initWithFrame:btnGroupFrame];
+    self.btnsGroup.backgroundColor = [UIColor blackColor];
     
     CGRect buttonRect = [[UIScreen mainScreen] bounds];
     buttonRect.origin.x = 0;
@@ -84,36 +91,42 @@ static const int BTNS_HEIGHT = 40;
     buttonRect.size.height = BTNS_HEIGHT;
     buttonRect.size.width = screenSize.size.width / 4;
     
-    UIButton *btnChangeMode = [[UIButton alloc]initWithFrame:buttonRect];
-    [btnChangeMode setImage:[UIImage imageNamed:@"tabbar_client.png"] forState:UIControlStateNormal];
-    [btnChangeMode addTarget:self action:@selector(switchTextView:) forControlEvents:UIControlEventTouchDown];
-    btnChangeMode.backgroundColor = [UIColor whiteColor];
-    [self.btnsGroup addSubview:btnChangeMode];
+    //切换白天夜晚模式按钮
+    self.btnChangeMode = [[UIButton alloc]initWithFrame:buttonRect];
+    [self.btnChangeMode setImage:[UIImage imageNamed:ACTION_NIGHT] forState:UIControlStateNormal];
+    [self.btnChangeMode addTarget:self action:@selector(switchTextView:) forControlEvents:UIControlEventTouchDown];
+    self.btnChangeMode.backgroundColor = [UIColor blackColor];
+    [self.btnsGroup addSubview:self.btnChangeMode];
     
+    //日历按钮
     buttonRect.origin.x += screenSize.size.width / 4;
-    UIButton *btnDate = [[UIButton alloc]initWithFrame:buttonRect];
-    [btnDate setImage:[UIImage imageNamed:@"tabbar_info.png"] forState:UIControlStateNormal];
-    [btnDate addTarget:self action:@selector(showDate:) forControlEvents:UIControlEventTouchDown];
-    btnDate.backgroundColor = [UIColor whiteColor];
-    [self.btnsGroup addSubview:btnDate];
+    self.btnDate = [[UIButton alloc]initWithFrame:buttonRect];
+    [self.btnDate setImage:[UIImage imageNamed:ACTION_CALENDAR] forState:UIControlStateNormal];
+    [self.btnDate addTarget:self action:@selector(showDate:) forControlEvents:UIControlEventTouchDown];
+    self.btnDate.backgroundColor = [UIColor blackColor];
+    [self.btnsGroup addSubview:self.btnDate];
 
+    //随机文章按钮
     buttonRect.origin.x += screenSize.size.width / 4;
-    UIButton *btnRefreshArticle = [[UIButton alloc]initWithFrame:buttonRect];
-    [btnRefreshArticle setImage:[UIImage imageNamed:@"tabbar_more.png"] forState:UIControlStateNormal];
-    [btnRefreshArticle addTarget:self action:@selector(randomArticle:) forControlEvents:UIControlEventTouchDown];
-    btnRefreshArticle.backgroundColor = [UIColor whiteColor];
-    [self.btnsGroup addSubview:btnRefreshArticle];
+    self.btnRefreshArticle = [[UIButton alloc]initWithFrame:buttonRect];
+    [self.btnRefreshArticle setImage:[UIImage imageNamed:ACTION_RANDOM] forState:UIControlStateNormal];
+    [self.btnRefreshArticle addTarget:self action:@selector(randomArticle:) forControlEvents:UIControlEventTouchDown];
+    self.btnRefreshArticle.backgroundColor = [UIColor blackColor];
+    [self.btnsGroup addSubview:self.btnRefreshArticle];
     
+    //更多按钮
     buttonRect.origin.x += screenSize.size.width / 4;
-    UIButton* button4 = [[UIButton alloc]initWithFrame:buttonRect];
-    [button4 setImage:[UIImage imageNamed:@"tabbar_product.png"] forState:UIControlStateNormal];
-    [button4 addTarget:self action:@selector(hideButtons:) forControlEvents:UIControlEventTouchDown];
-    button4.backgroundColor = [UIColor whiteColor];
-    [self.btnsGroup addSubview:button4];
+    self.btnMore = [[UIButton alloc]initWithFrame:buttonRect];
+    [self.btnMore setImage:[UIImage imageNamed:ACTION_MORE] forState:UIControlStateNormal];
+    [self.btnMore addTarget:self action:@selector(showMore:) forControlEvents:UIControlEventTouchDown];
+    self.btnMore.backgroundColor = [UIColor blackColor];
+    [self.btnsGroup addSubview:self.btnMore];
     
     [self.view addSubview:self.btnsGroup];
     
-    //刷新今天的文章
+    
+    //加载当天的文章
+    [self refreshArticleForDate:[Util currentDate]];
 }
 
 //切换显示效果
@@ -135,12 +148,14 @@ static const int BTNS_HEIGHT = 40;
 {
     switch (self.mode) {
         case NIGHT:
-            [self.articleBackground setImage:[UIImage imageNamed:@"article_background_night.jpg"]];
+            [self.articleBackground setImage:[UIImage imageNamed:ARTICAL_BACKGROUND_NIGHT]];
             self.myTextField.textColor = [UIColor whiteColor];
+            [self.btnChangeMode setImage:[UIImage imageNamed:ACTION_DAY] forState:UIControlStateNormal];
             break;
         case DAY:
-            [self.articleBackground setImage:[UIImage imageNamed:@"article_background_day.jpg"]];
+            [self.articleBackground setImage:[UIImage imageNamed:ARTICAL_BACKGROUND_DAY]];
             self.myTextField.textColor = [UIColor blackColor];
+            [self.btnChangeMode setImage:[UIImage imageNamed:ACTION_NIGHT] forState:UIControlStateNormal];
             break;
         default:
             break;
@@ -158,10 +173,26 @@ static const int BTNS_HEIGHT = 40;
     rectInWindw.origin.x = screenSize.size.width / 4;
     rectInWindw.origin.y = screenSize.size.height - BTNS_HEIGHT;
     
+    [self.btnDate setImage:[UIImage imageNamed:ACTION_CALENDAR_SELECTED] forState:UIControlStateNormal];
+    
     [self.pmCC presentCalendarFromView:sender.superview
          permittedArrowDirections:PMCalendarArrowDirectionAny
                   rectInAppWindow:rectInWindw
                          animated:YES];
+}
+
+- (void)showMore:(UIButton*)sender
+{
+    UIToastView *copyright = [[UIToastView alloc] init];
+    if (++self.colorEgg % 5 == 0) {
+        [copyright setToastType:0 withToast:COLOR_EGG toastTime:TOAST_DURATION];
+    }
+    else
+    {
+        [copyright setToastType:0 withToast:COPYRIGHT toastTime:TOAST_DURATION];
+    }
+    
+    [self.view addSubview:copyright];
 }
 
 -(void)refreshArticle:(NSDictionary*)articleData
@@ -197,31 +228,54 @@ static const int BTNS_HEIGHT = 40;
 
 -(void) requestPost: (NSString*) url
 {
+    if (self.isLoading)
+    {
+        return;
+    }
     //加载框
-    UILoadingView *image = [[UILoadingView alloc] init];
+    UIToastView *image = [[UIToastView alloc] init];
+    [image setToastType:1 withToast:LOADING toastTime:0];
     [self.view addSubview:image];
+    self.isLoading = YES;
     
-    MKNetworkEngine *engine = [[MKNetworkEngine alloc] initWithHostName:@"www.magicapp.cn" customHeaderFields:nil];
+    MKNetworkEngine *engine = [[MKNetworkEngine alloc] initWithHostName:SERVER_HOST customHeaderFields:nil];
     MKNetworkOperation *op = [engine operationWithPath:url params:nil httpMethod:@"POST"];
     [op addCompletionHandler:^(MKNetworkOperation *operation)
     {
         NSData* received = [operation responseData];
-        NSLog(@"response : %@", received);
+//        NSLog(@"response : %@", received);
         NSString *jsonString = [[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
         NSData* jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary* dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableLeaves error:nil];
         
         NSDictionary* arrayResult =[dic objectForKey:@"DATA"];
+        //存在文章，直接刷新
         if (arrayResult != nil)
         {
             [self refreshArticle:arrayResult];
+            
+            [self.pmCC dismissCalendarAnimated:YES];
+            [self.btnDate setImage:[UIImage imageNamed:ACTION_CALENDAR] forState:UIControlStateNormal];
+        }
+        //文章不存在，给出提示
+        else
+        {
+            UIToastView *noArticle = [[UIToastView alloc] init];
+            [noArticle setToastType:0 withToast:NOARTICLE toastTime:TOAST_DURATION];
+            [self.view addSubview:noArticle];
         }
         
         [image removeFromSuperview];
-         
+        self.isLoading = NO;
      } errorHandler:^(MKNetworkOperation *errorOP, NSError *err)
      {
          NSLog(@"MKNET 请求错误 : %@", [err localizedDescription]);
+         UIToastView *noNetWork = [[UIToastView alloc] init];
+         [noNetWork setToastType:0 withToast:DISCONNECTED toastTime:TOAST_DURATION];
+         [self.view addSubview:noNetWork];
+         
+         [image removeFromSuperview];
+         self.isLoading = NO;
      }];
     [engine enqueueOperation:op];
 }
@@ -236,6 +290,12 @@ static const int BTNS_HEIGHT = 40;
     NSString *selectedDate = [notice object];
     
     [self refreshArticleForDate:selectedDate];
+}
+
+- (void) clickCalendarDismissed:(NSNotification *) notice
+{
+    [self.pmCC dismissCalendarAnimated:YES];
+    [self.btnDate setImage:[UIImage imageNamed:ACTION_CALENDAR] forState:UIControlStateNormal];
 }
 
 - (void)refreshArticleForDate:(NSString*) date
@@ -257,10 +317,6 @@ static const int BTNS_HEIGHT = 40;
 - (void) dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void) hideButtons:(UIButton *)sender
-{
 }
 
 //隐藏或显示按钮

@@ -12,6 +12,7 @@
 #import "NSDate+Helpers.h"
 #import "PMSelectionView.h"
 #import "Util.h"
+#import "Constant.h"
 
 @interface PMDaysView : UIView
 
@@ -89,7 +90,7 @@
 
     self.panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panHandling:)];
     self.panGestureRecognizer.delegate = self;
-    [self addGestureRecognizer:self.panGestureRecognizer];
+//    [self addGestureRecognizer:self.panGestureRecognizer];
     
     self.allowsLongPressYearChange = YES;
 
