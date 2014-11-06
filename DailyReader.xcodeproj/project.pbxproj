@@ -585,7 +585,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "magic夜读";
-				PROVISIONING_PROFILE = "1895ac9f-3cc8-4f86-ae05-57a97f3fce93";
+				PROVISIONING_PROFILE = "70be69da-7d03-4557-bfb5-81e9cba96127";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -605,7 +605,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "magic夜读";
-				PROVISIONING_PROFILE = "1895ac9f-3cc8-4f86-ae05-57a97f3fce93";
+				PROVISIONING_PROFILE = "70be69da-7d03-4557-bfb5-81e9cba96127";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
