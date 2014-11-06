@@ -13,7 +13,7 @@
 #import "Constant.h"
 
 //按钮高度
-static const int BTNS_HEIGHT = 50;
+static const int BTNS_HEIGHT = 40;
 
 static const float TOAST_DURATION = 1.5f;
 
@@ -49,7 +49,7 @@ static const float TOAST_DURATION = 1.5f;
     CGRect rect = [[UIScreen mainScreen] bounds];
     
     self.articleBackground = [[UIImageView alloc] initWithFrame:rect];
-    [self.articleBackground setImage:[UIImage imageNamed:ARTICAL_BACKGROUND_DAY]];
+//    [self.articleBackground setImage:[UIImage imageNamed:ARTICAL_BACKGROUND_DAY]];
     
     rect.origin.y += 20;
     rect.size.height -= 20;
@@ -148,12 +148,16 @@ static const float TOAST_DURATION = 1.5f;
 {
     switch (self.mode) {
         case NIGHT:
-            [self.articleBackground setImage:[UIImage imageNamed:ARTICAL_BACKGROUND_NIGHT]];
-            self.myTextField.textColor = [UIColor whiteColor];
+//            [self.articleBackground setImage:[UIImage imageNamed:ARTICAL_BACKGROUND_NIGHT]];
+//            self.myTextField.textColor = [UIColor whiteColor];
+            self.articleBackground.backgroundColor = [UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1.0];
+            [self.articleBackground setImage:nil];
+            self.myTextField.textColor = [UIColor colorWithRed:107.0/255.0 green:107.0/255.0 blue:107.0/255.0 alpha:1.0];
             [self.btnChangeMode setImage:[UIImage imageNamed:ACTION_DAY] forState:UIControlStateNormal];
             break;
         case DAY:
             [self.articleBackground setImage:[UIImage imageNamed:ARTICAL_BACKGROUND_DAY]];
+//            self.articleBackground.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0];
             self.myTextField.textColor = [UIColor blackColor];
             [self.btnChangeMode setImage:[UIImage imageNamed:ACTION_NIGHT] forState:UIControlStateNormal];
             break;
