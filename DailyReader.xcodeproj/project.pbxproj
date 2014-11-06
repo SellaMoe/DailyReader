@@ -408,11 +408,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA0BF4721A0A4A64006DCAD8 /* Default-568h@2x.png in Resources */,
-				CF55B6E01A027A8800944E80 /* tabbar_more.png in Resources */,
-				CF55B6DE1A027A8800944E80 /* tabbar_info.png in Resources */,
-				CF55B6E21A027A8800944E80 /* tabbar_product.png in Resources */,
-				CF55B6DF1A027A8800944E80 /* tabbar_more_selected.png in Resources */,
-				CF55B6DD1A027A8800944E80 /* tabbar_info_selected.png in Resources */,
 				CF324C0F1A0A568B00D624BB /* action_add.png in Resources */,
 				CF324C061A0A559300D624BB /* article_background_day.jpg in Resources */,
 				6C6F4C9C19FD0072005E52FE /* LaunchScreen.xib in Resources */,
@@ -590,7 +585,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "magic夜读";
-				PROVISIONING_PROFILE = "70be69da-7d03-4557-bfb5-81e9cba96127";
+				PROVISIONING_PROFILE = "1895ac9f-3cc8-4f86-ae05-57a97f3fce93";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -610,7 +605,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "magic夜读";
-				PROVISIONING_PROFILE = "70be69da-7d03-4557-bfb5-81e9cba96127";
+				PROVISIONING_PROFILE = "1895ac9f-3cc8-4f86-ae05-57a97f3fce93";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
